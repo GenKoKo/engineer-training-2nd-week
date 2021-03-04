@@ -1,4 +1,5 @@
-// Question 1
+// Q1
+console.log("---Q1---");
     function calculate(min, max){
         let total = 0;
         while(min <= max){        
@@ -8,14 +9,15 @@
         console.log(total);
     }    
     
-    calculate(1, 3)
+    calculate(1, 3);
     // 你的程式要能夠計算 1+2+3，最後印出 6  
-    calculate(4, 8)
+    calculate(4, 8);
     // 你的程式要能夠計算 4+5+6+7+8，最後印出 30
 
+    
 
-// Question 2 要求二：Python字典與列表、JavaScript物件與陣列完成以下函式，正確計算出員工的平均薪資，請考慮員工數量會變動的情況。提醒：​請勿更動題目中任何已經寫好的程式。要求二：Python字典與列表、JavaScript物件與陣列完成以下函式，正確計算出員工的平均薪資，請考慮員工數量會變動的情況。提醒：​請勿更動題目中任何已經寫好的程式。
-
+// Q2
+console.log("---Q2---");
 function avg(data){
     
     let employees_number = data["employees"].length;
@@ -28,11 +30,7 @@ function avg(data){
     
     let average = total / employees_number;
 
-    console.log(average)
-
-
-    
-
+    console.log(average);
 }
 
 avg(
@@ -43,4 +41,114 @@ avg(
                     {"name":"Jenny","salary":50000}
                 ]
         }
-    )
+    );
+
+
+
+// Q3
+console.log("---Q3---");
+
+function maxProduct(nums){
+
+    let object = {};
+    for(let i = 0; i < nums.length;i++){
+        object[i] = nums[i];
+    }
+    
+    let result_all =[];
+    for (let j=0; j < nums.length; j++){
+
+        let times = nums.length - j -1;
+        let k = j + 1;
+        while( times > 0){
+            let result_each = object[j]*object[k];
+            result_all.push(result_each);
+            times--;
+            k++
+        }
+    
+
+    }
+
+    let max_nums = Math.max(...result_all);
+    
+    console.log(max_nums);
+    
+}
+
+maxProduct([5, 20, 2, 6]);
+
+maxProduct([10,-20,0,3]);
+
+maxProduct([10,-20,0,3,1,3,5,10,20,15,13,-17]);
+
+
+// Q4 
+console.log("---Q4---");
+
+function twoSum(nums, target){
+
+    let object = {};
+    for(let i = 0; i < nums.length; i++){
+        object[i] = nums[i];
+    }
+
+    for(let j = 0; j < nums.length; j++){
+
+        let k = j + 1;
+        let times = nums.length - j -1;
+        while(times > 0){
+            let plus = object[j]+object[k];
+
+            if( plus === target){
+                return [j,k]
+            }
+
+            times--;
+            k++;
+        }
+
+    }
+
+}
+
+
+result = twoSum([2, 11, 7, 15], 9)
+console.log(result);
+
+
+
+// Q5 
+console.log("---Q5---");
+
+
+function maxZeros(nums){
+    
+    let longest = 0;
+    let temp_length = 0;
+    let temp_longest = 0;
+    for(let i = 0; i < nums.length; i++){
+        
+        
+        if ( nums[i] === 0){
+            temp_length++;
+            temp_longest = temp_length;
+
+            if(temp_longest > longest){
+                longest = temp_longest;
+            }
+        }
+        else{
+            temp_length = 0;
+        }
+    }
+
+    console.log(longest);
+}
+
+
+maxZeros([0, 1, 0, 0]); // get 2
+
+maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]); // get 4
+
+maxZeros([1, 1, 1, 1, 1]); // get 0
