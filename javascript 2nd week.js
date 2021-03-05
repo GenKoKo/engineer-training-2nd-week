@@ -77,10 +77,8 @@ function maxProduct(nums){
 }
 
 maxProduct([5, 20, 2, 6]);
-
 maxProduct([10,-20,0,3]);
-
-maxProduct([10,-20,0,3,1,3,5,10,20,15,13,-17]);
+// maxProduct([10,-20,0,3,1,3,5,10,20,15,13,-17]);
 
 
 // Q4 
@@ -148,7 +146,5 @@ function maxZeros(nums){
 
 
 maxZeros([0, 1, 0, 0]); // get 2
-
 maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]); // get 4
-
 maxZeros([1, 1, 1, 1, 1]); // get 0
